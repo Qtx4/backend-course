@@ -18,6 +18,10 @@ app.use(morgan("dev"));
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("✅ MongoDB Connected"))
   .catch((err) => console.error("❌ DB Error:", err.message));
+app.get("/", (req, res) => {
+  res.send("✅ Backend Server is Live!");
+});
+
 
 // ✅ Routes
 app.use("/api/auth", authRoute);
